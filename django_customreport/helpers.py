@@ -176,8 +176,7 @@ class CustomReportDisplayList(displayset_views.DisplayList):
 	def __init__(self,request,*args,**kwargs):
 		super(CustomReportDisplayList,self).__init__(request,*args,**kwargs)
 		self.list_display.extend(self.get_display_funcs())
-		self.order_field, self.order_type = self.get_ordering()
-		self.query_set = self.get_query_set()
+		self.query_set = self.get_query_set(request)
 		self.get_results(request)
 
 	def initial_field_funcs(self):
